@@ -1,0 +1,12 @@
+channels:
+    - conda-forge
+    - bioconda
+dependencies:
+    - scanpy
+    - loompy
+    - scvelo
+    - anndata
+    - velocyto.py
+    - python-igraph
+    - louvain
+    - rpy2
