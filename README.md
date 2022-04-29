@@ -35,5 +35,11 @@ $(pwd) might not work on windows OS
 - export BUILDKIT_PROGRESS=plain # or TTY for tidy output
 - to build fresh = --no-cache
 
+## To push to dockerhub 
+docker login -u "username" -p "password"
+docker tag image:tag dockerhub_username/image
+docker push dockerhub_username/image
+
+
  
 
