@@ -22,40 +22,51 @@ devtools::install_github("powellgenomicslab/scPred",
                          dependencies = TRUE, 
                          upgrade = FALSE)
 
-# SeuratWrappers
-devtools::install_github("satijalab/seurat-wrappers", 
-                         #ref = "development", # seurat wrappers hasn't been versioned on github and therefore cant call a specific release
-                         dependencies = FALSE, 
+# seuratdisk
+devtools::install_github("mojaveazure/seurat-disk", 
+                         #ref = "HEAD", # package hasn't been versioned on github and therefore cant call a specific release
+                         dependencies = TRUE, 
                          upgrade = FALSE)
 
-# dynverse
-devtools::install_github("dynverse/dyno", 
-                         #ref = "HEAD", # dyno hasn't been versioned on github and therefore cant call a specific release
+# seurat data
+devtools::install_github("satijalab/seurat-data", 
+                         #ref = "HEAD", # package hasn't been versioned on github and therefore cant call a specific release
+                         dependencies = TRUE, 
+                         upgrade = FALSE)
+
+# SeuratWrappers
+devtools::install_github("satijalab/seurat-wrappers", 
+                         #ref = "HEAD", # package hasn't been versioned on github and therefore cant call a specific release
                          dependencies = TRUE, 
                          upgrade = FALSE)
 
 
-# packages Not sure that are needed
+# sctransform
+devtools::install_github("satijalab/sctransform", 
+                         ref = "v0.3.3", # seurat v4.1.0 require version >0.3.3
+                         dependencies = TRUE, 
+                         upgrade = FALSE)
 
-#library("magrittr")
-#library("doParallel")
+# Seurat object
+devtools::install_github("mojaveazure/seurat-object",
+                         ref = "v4.0.4", # seurat v4.1.0 requires this version
+                         dependencies = TRUE,
+                         upgrade = FALSE)
 
-# Cytotrace
-# Download source file from - https://cytotrace.stanford.edu/
-#devtools::install_local("PATH/TO/DIRECTORY/CytoTRACE_0.3.3.tar.gz")
+# Seurat
+devtools::install_github("satijalab/seurat", 
+                         ref = "v4.1.0", # require version >4.0.5 for scCust to work
+                         dependencies = TRUE, 
+                         upgrade = FALSE)
 
-# celltalker
-#devtools::install_github("arc85/celltalker")
+# scCustomize
+devtools::install_github("samuel-marsh/scCustomize", 
+                         ref = "v0.7.0",
+                         dependencies = TRUE, 
+                         upgrade = FALSE)
 
-# iTalk
-#devtools::install_github("Coolgenome/iTALK", build_vignettes = TRUE)
-
-# Velocity 
-#devtools::install_github("velocyto-team/velocyto.R")
-
-# Monocle
-#devtools::install_github('cole-trapnell-lab/leidenbase')
-#devtools::install_github('cole-trapnell-lab/monocle3')
-#devtools::install_github("chuiqin/irGSEA@fd75089d955efe2fa7bae7f064fa2fff2a1897e7",dependencies = F,upgrade = F)
-
-
+# dynverse
+devtools::install_github("dynverse/dyno", 
+                         #ref = "HEAD", # package hasn't been versioned on github and therefore cant call a specific release
+                         dependencies = TRUE, 
+                         upgrade = FALSE)

@@ -1,10 +1,8 @@
 FROM rocker/tidyverse:4.1.1
 
 LABEL maintainer="Dillon Corvino"
-
 LABEL version="1.1"
-
-LABEL Image for scRNAseq analysis
+LABEL description="Image for scRNAseq analysis"
 
 # This will make apt-get install without question
 ENV DEBIAN_FRONTEND noninteractive
@@ -13,21 +11,22 @@ ARG PATH="/home/rstudio/miniconda3/bin:${PATH}"
 
 RUN apt-get update --yes && apt-get install --yes libglpk40 \ 
 libhdf5-dev \
+libx11-dev \
+libxt-dev \
+libgsl23 \
+libxt6 \
+libproj-dev \
     && rm -rf /var/lib/apt/lists/*
 
 USER rstudio
 
-WORKDIR /work_dir
-
 COPY .Renviron . 
 
-COPY install_bioconductor.R .
-RUN R -f install_bioconductor.R
+COPY install_bioconductor.R /tmp/
+RUN R -f /tmp/install_bioconductor.R
 
-COPY install_github.R .
-RUN R -f install_github.R
-
-USER rstudio
+COPY install_github.R /tmp/
+RUN R -f /tmp/install_github.R
 
 # install miniconda3
 RUN mkdir /home/rstudio/miniconda3 && cd /home/rstudio/ \
@@ -47,6 +46,8 @@ USER root
 USER rstudio
 RUN conda clean --all
 
+WORKDIR /home/rstudio/
+
 USER root
 
-
+RUN rm /.Renviron

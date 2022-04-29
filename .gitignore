@@ -17,6 +17,15 @@
 # Output files from R CMD check
 /*.Rcheck/
 
+# Ignore archived files
+archive_dockers/**/**
+
+# config files
+.config/**/**
+
+# ignore some system files
+.local/**/**
+
 # RStudio files
 .Rproj.user/
 
