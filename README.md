@@ -20,8 +20,8 @@ dockerimagename:tag
 
 now open interface at "localhost:8787"
 
-### Notes
-$(pwd) might not work on windows OS 
+### Run on Windows
+docker run --rm --name NAMEOFYOURCONTAINER -p 8787:8787 -e PASSWORD=YOURPW -v YOURFILEPATH:/home/rstudio/miniconda3 eomesodermin/scrnaseq
 
 ### useful commands in docker 
 - docker system df
